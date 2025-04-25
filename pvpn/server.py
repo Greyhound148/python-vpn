@@ -290,7 +290,7 @@ class IKEv2Session:
             request_payload_auth = request.get_payload(enums.Payload.AUTH)
             if request_payload_auth is None:
                 EAP = True
-                raise Exception('EAP not supported')
+                print(f"=== GOT EAP ID: \"{request_payload_idi}\" ===")
             else:
                 EAP = False
                 auth_data = self.auth_data(self.request_data, self.my_nonce, request_payload_idi, self.peer_crypto.sk_p)
